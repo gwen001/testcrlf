@@ -21,6 +21,7 @@ class TestCrlf
 		'//xxx%0D%0ASet-Cookie:__COOKIE_NAME__=__COOKIE_VALUE__;',
 		'//xxx%0DSet-Cookie:__COOKIE_NAME__=__COOKIE_VALUE__;',
 		'//xxx%0ASet-Cookie:__COOKIE_NAME__=__COOKIE_VALUE__;',
+		'/%E5%98%8A%E5%98%8DSet-Cookie:%20__COOKIE_NAME__=__COOKIE_VALUE__',
 	);
 
 	/**
@@ -70,13 +71,6 @@ class TestCrlf
 	 * payloads table
 	 */
 	private $t_payloads = null;
-
-	/**
-	 * @var array
-	 *
-	 * results table
-	 */
-	private $t_result = array();
 
 
 	public function getCookieName() {

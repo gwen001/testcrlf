@@ -15,17 +15,11 @@ function __autoload( $c ) {
 // parse command line
 {
 	$testcrlf = new TestCrlf();
-	//$reference = new TestCrlfRequest();
 
 	$argc = $_SERVER['argc'] - 1;
 
 	for ($i = 1; $i <= $argc; $i++) {
 		switch ($_SERVER['argv'][$i]) {
-			case '-f':
-				$testcrlf->setHost( $_SERVER['argv'][$i + 1] );
-				$i++;
-				break;
-
 			case '-h':
 				Utils::help();
 				break;
