@@ -8,7 +8,7 @@
  */
 
 function __autoload( $c ) {
-	include( $c.'.php' );
+	include( __DIR__.'/'.$c.'.php' );
 }
 
 
@@ -22,6 +22,10 @@ function __autoload( $c ) {
 		switch ($_SERVER['argv'][$i]) {
 			case '-h':
 				Utils::help();
+				break;
+
+			case '-l':
+				$testcrlf->listPayloads();
 				break;
 
 			case '-o':

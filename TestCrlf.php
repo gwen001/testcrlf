@@ -64,6 +64,8 @@ class TestCrlf
 	private $redirect = false;
 	
 	private $ssl = false;
+	
+	private $list_payloads = false;
 
 	/**
 	 * @var array
@@ -73,6 +75,13 @@ class TestCrlf
 	private $t_payloads = null;
 
 
+	
+	public function listPayloads() {
+		$this->list_payloads = true;
+		return true;
+	}
+
+	
 	public function getCookieName() {
 		return $this->cookie_name;
 	}
@@ -170,13 +179,18 @@ class TestCrlf
 
 		echo "Testing ".$n_payloads." payloads on ".count($t_host)." host...\n\n";
 
+		if( $this->list_payloads ) {
+			echo implode( "\n", $this->getPayloads() )."\n\n";
+			exit();
+		}
+		
 		foreach( $t_host as $h )
 		{
 			$crlf = false;
 
 			foreach( $this->getPayloads() as $p )
 			{
-				//echo $p."\n";
+				echo $p."\n";
 				
 				$r = new TestCrlfRequest();
 				$r->setRedirect( $this->redirect );
@@ -203,6 +217,7 @@ class TestCrlf
 				}
 			}
 
+			echo "\n";
 			$this->result( $h, $crlf, $p );
 		}
 

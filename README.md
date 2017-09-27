@@ -7,6 +7,7 @@ Usage: php testcrlf.php [OPTIONS] -o <host>
 
 Options:
 	-h	print this help
+	-l	display payloads, do not perform any test
 	-o	single host to test or source file
 	-r	follow redirection
 	-s	force https
